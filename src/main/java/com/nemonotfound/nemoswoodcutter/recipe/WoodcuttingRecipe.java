@@ -2,20 +2,15 @@ package com.nemonotfound.nemoswoodcutter.recipe;
 
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
-import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
-import net.fabricmc.fabric.impl.resource.conditions.conditions.AllModsLoadedResourceCondition;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.RegistryByteBuf;
-import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.world.World;
 
 public class WoodcuttingRecipe implements Recipe<Inventory> {
@@ -34,7 +29,7 @@ public class WoodcuttingRecipe implements Recipe<Inventory> {
     }
 
     @Override
-    public ItemStack craft(Inventory inventory, RegistryWrapper.WrapperLookup lookup) {
+    public ItemStack craft(Inventory inventory, DynamicRegistryManager registryManager) {
         return result.copy();
     }
 
@@ -42,13 +37,14 @@ public class WoodcuttingRecipe implements Recipe<Inventory> {
         return ingredientPair;
     }
 
+
     @Override
     public boolean fits(int width, int height) {
         return true;
     }
 
     @Override
-    public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
+    public ItemStack getResult(DynamicRegistryManager registryManager) {
         return result;
     }
 
@@ -70,42 +66,34 @@ public class WoodcuttingRecipe implements Recipe<Inventory> {
     public static class Serializer implements RecipeSerializer<WoodcuttingRecipe> {
 
         public static final Serializer INSTANCE = new Serializer();
-        public static final MapCodec<WoodcuttingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
-                ItemStack.VALIDATED_CODEC.fieldOf("result").forGetter(recipe -> recipe.result),
+        public static final Codec<WoodcuttingRecipe> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                ItemStack.CODEC.fieldOf("result").forGetter(recipe -> recipe.result),
                 Codec.pair(Ingredient.DISALLOW_EMPTY_CODEC, Codec.INT.optionalFieldOf("count", 1)
                         .codec()).fieldOf("ingredient").forGetter(WoodcuttingRecipe::getIngredientPair)
         ).apply(instance, WoodcuttingRecipe::new));
-        private final PacketCodec<RegistryByteBuf, WoodcuttingRecipe> packetCodec;
         public static final String ID = "woodcutting";
 
-        public Serializer() {
-            this.packetCodec = PacketCodec.ofStatic(this::write, this::read);
-        }
-
         @Override
-        public MapCodec<WoodcuttingRecipe> codec() {
+        public Codec<WoodcuttingRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public PacketCodec<RegistryByteBuf, WoodcuttingRecipe> packetCodec() {
-            return packetCodec;
-        }
-
-        public WoodcuttingRecipe read(RegistryByteBuf buf) {
-            Ingredient ingredient = Ingredient.PACKET_CODEC.decode(buf);
+        public WoodcuttingRecipe read(PacketByteBuf buf) {
+            Ingredient ingredient = Ingredient.fromPacket(buf);
             int ingredientCount = buf.readInt();
-            ItemStack result = ItemStack.PACKET_CODEC.decode(buf);
+            ItemStack result = buf.readItemStack();
 
             return new WoodcuttingRecipe(result, Pair.of(ingredient, ingredientCount));
         }
 
-        public void write(RegistryByteBuf buf, WoodcuttingRecipe recipe) {
+        @Override
+        public void write(PacketByteBuf buf, WoodcuttingRecipe recipe) {
             Pair<Ingredient, Integer> ingredientPair = recipe.getIngredientPair();
-            Ingredient.PACKET_CODEC.encode(buf, ingredientPair.getFirst());
+            ingredientPair.getFirst().write(buf);
             buf.writeInt(ingredientPair.getSecond());
 
-            ItemStack.PACKET_CODEC.encode(buf, recipe.result);
+            buf.writeItemStack(recipe.result);
         }
     }
 }

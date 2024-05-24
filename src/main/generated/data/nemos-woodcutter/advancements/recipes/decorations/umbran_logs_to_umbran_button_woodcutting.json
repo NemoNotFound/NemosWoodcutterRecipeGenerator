@@ -19,7 +19,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:umbran_button"
+            "items": [
+              "biomesoplenty:umbran_button"
+            ]
           }
         ]
       },

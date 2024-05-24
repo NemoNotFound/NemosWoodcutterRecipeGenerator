@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:hellbark_stairs"
+            "items": [
+              "biomesoplenty:hellbark_stairs"
+            ]
           }
         ]
       },

@@ -19,7 +19,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:willow_boat"
+            "items": [
+              "biomesoplenty:willow_boat"
+            ]
           }
         ]
       },

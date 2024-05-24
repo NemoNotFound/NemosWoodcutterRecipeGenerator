@@ -19,7 +19,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:willow_slab"
+            "items": [
+              "biomesoplenty:willow_slab"
+            ]
           }
         ]
       },

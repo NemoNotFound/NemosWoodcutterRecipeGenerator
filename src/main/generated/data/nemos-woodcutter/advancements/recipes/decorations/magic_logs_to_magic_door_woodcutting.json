@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:magic_door"
+            "items": [
+              "biomesoplenty:magic_door"
+            ]
           }
         ]
       },

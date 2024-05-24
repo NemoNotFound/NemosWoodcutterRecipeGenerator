@@ -6,30 +6,27 @@ import biomesoplenty.init.ModTags;
 import com.mojang.datafixers.util.Pair;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditions;
+import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
 import net.minecraft.block.Block;
 import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.item.Item;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
 
-import java.util.concurrent.CompletableFuture;
-
 public class RecipeGenerator extends FabricRecipeProvider {
 
-    public RecipeGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, registriesFuture);
+    public RecipeGenerator(FabricDataOutput output) {
+        super(output);
     }
 
     @Override
     public void generate(RecipeExporter exporter) {
 
         //Biomes O' Plenty
-        RecipeExporter exporterForBiomesOPlenty = withConditions(exporter, ResourceConditions.allModsLoaded("biomesoplenty"));
+        RecipeExporter exporterForBiomesOPlenty = withConditions(exporter, DefaultResourceConditions.allModsLoaded("biomesoplenty"));
         createCarpentryRecipe(exporterForBiomesOPlenty, ModTags.Items.FIR_LOGS, 1, BOPItems.FIR_PLANKS, 4);
         createCarpentryRecipe(exporterForBiomesOPlenty, ModTags.Items.FIR_LOGS, 1, BOPItems.FIR_BOAT, 1);
         createCarpentryRecipe(exporterForBiomesOPlenty, ModTags.Items.FIR_LOGS, 1, BOPItems.FIR_BUTTON, 16);

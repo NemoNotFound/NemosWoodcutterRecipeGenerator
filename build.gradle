@@ -35,9 +35,9 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "curse.maven:biomes-o-plenty-220318:5360453"
-	modImplementation "curse.maven:terrablender-fabric-565956:5340451"
-	modImplementation "curse.maven:glitchcore-955399:5352265"
+	modImplementation "curse.maven:biomes-o-plenty-220318:5300401"
+	modImplementation "curse.maven:terrablender-fabric-565956:5068224"
+	modImplementation "curse.maven:glitchcore-955399:5088443"
 	implementation("com.electronwill.night-config:toml:3.6.7")
 	implementation("com.electronwill.night-config:core:3.6.7")
 	implementation("net.jodah:typetools:0.6.3")

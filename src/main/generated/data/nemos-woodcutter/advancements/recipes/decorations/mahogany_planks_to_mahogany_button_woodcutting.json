@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:mahogany_button"
+            "items": [
+              "biomesoplenty:mahogany_button"
+            ]
           }
         ]
       },

@@ -19,7 +19,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:umbran_boat"
+            "items": [
+              "biomesoplenty:umbran_boat"
+            ]
           }
         ]
       },

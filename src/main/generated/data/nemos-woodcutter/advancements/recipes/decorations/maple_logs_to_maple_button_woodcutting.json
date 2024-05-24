@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:maple_button"
+            "items": [
+              "biomesoplenty:maple_button"
+            ]
           }
         ]
       },

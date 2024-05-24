@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:redwood_sign"
+            "items": [
+              "biomesoplenty:redwood_sign"
+            ]
           }
         ]
       },

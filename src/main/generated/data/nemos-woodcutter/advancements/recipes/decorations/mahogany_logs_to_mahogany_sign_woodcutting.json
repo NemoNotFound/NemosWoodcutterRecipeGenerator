@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:mahogany_sign"
+            "items": [
+              "biomesoplenty:mahogany_sign"
+            ]
           }
         ]
       },

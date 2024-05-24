@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:pine_slab"
+            "items": [
+              "biomesoplenty:pine_slab"
+            ]
           }
         ]
       },

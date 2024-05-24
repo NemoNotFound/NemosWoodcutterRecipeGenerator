@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:redwood_fence"
+            "items": [
+              "biomesoplenty:redwood_fence"
+            ]
           }
         ]
       },

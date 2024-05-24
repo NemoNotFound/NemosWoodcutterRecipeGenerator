@@ -19,7 +19,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:willow_sign"
+            "items": [
+              "biomesoplenty:willow_sign"
+            ]
           }
         ]
       },

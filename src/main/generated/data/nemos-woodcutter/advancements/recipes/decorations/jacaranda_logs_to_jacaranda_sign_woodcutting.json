@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:jacaranda_sign"
+            "items": [
+              "biomesoplenty:jacaranda_sign"
+            ]
           }
         ]
       },

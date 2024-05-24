@@ -13,7 +13,9 @@
       "conditions": {
         "items": [
           {
-            "items": "biomesoplenty:empyreal_button"
+            "items": [
+              "biomesoplenty:empyreal_button"
+            ]
           }
         ]
       },
