@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "nemos-woodcutter",
+	"version": "${version}",
+	"name": "Nemo's Woodcutter Recipe Generator",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://nemonotfound.com/",
+		"sources": "https://github.com/NemoNotFound/NemosWoodcutterRecipeGenerator"
+	},
+	"license": "MIT",
+	"icon": "assets/nemos-woodcutter/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.nemonotfound.nemoswoodcutter.NemosWoodcutter"
+		],
+		"fabric-datagen": [
+			"com.nemonotfound.nemoswoodcutter.NemosWoodcutterDataGenerator"
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.15.11",
+		"minecraft": "~1.20.6",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
