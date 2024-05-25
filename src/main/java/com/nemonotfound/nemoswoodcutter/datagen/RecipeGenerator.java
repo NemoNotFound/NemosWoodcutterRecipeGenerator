@@ -28,7 +28,11 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
     @Override
     public void generate(RecipeExporter exporter) {
-        //Biomes O' Plenty
+        createBiomesOPlentyRecipes(exporter);
+        createRegionsUnexploredRecipes(exporter);
+    }
+
+    private void createBiomesOPlentyRecipes(RecipeExporter exporter) {
         RecipeExporter exporterForBiomesOPlenty = withConditions(exporter, DefaultResourceConditions.allModsLoaded("biomesoplenty"));
         createCarpentryRecipe(exporterForBiomesOPlenty, ModTags.Items.FIR_LOGS, 1, BOPItems.FIR_PLANKS, 4);
         createCarpentryRecipe(exporterForBiomesOPlenty, ModTags.Items.FIR_LOGS, 1, BOPItems.FIR_BOAT, 1);
@@ -328,8 +332,9 @@ public class RecipeGenerator extends FabricRecipeProvider {
         createCarpentryRecipe(exporterForBiomesOPlenty, Pair.of(BOPBlocks.EMPYREAL_PLANKS, 1), BOPItems.EMPYREAL_SLAB, 2);
         createCarpentryRecipe(exporterForBiomesOPlenty, Pair.of(BOPBlocks.EMPYREAL_PLANKS, 1), BOPItems.EMPYREAL_STAIRS, 1);
         createCarpentryRecipe(exporterForBiomesOPlenty, Pair.of(BOPBlocks.EMPYREAL_PLANKS, 1), BOPItems.EMPYREAL_TRAPDOOR, 2);
+    }
 
-        //Regions unexplored
+    private void createRegionsUnexploredRecipes(RecipeExporter exporter) {
         RecipeExporter exporterForRegionsUnexplored = withConditions(exporter, DefaultResourceConditions.allModsLoaded("regions_unexplored"));
 
         createCarpentryRecipe(exporterForRegionsUnexplored, Pair.of(RuBlocks.ALPHA_PLANKS, 1), RuBlocks.ALPHA_SLAB, 2);
