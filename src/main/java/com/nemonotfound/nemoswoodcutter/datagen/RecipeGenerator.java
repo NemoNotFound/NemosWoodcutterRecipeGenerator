@@ -902,11 +902,13 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
     private void createCarpentryRecipe(RecipeExporter exporter, TagKey<Item> tag, Integer ingredientCount, ItemConvertible output,
                                        int outputCount) {
-        String tagPath = tag.id().getPath();
+        Identifier tagId = tag.id();
+        String tagNamespace = tagId.getNamespace();
+        String tagPath = tagId.getPath();
 
         WoodcuttingRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output, outputCount)
                 .input(Ingredient.fromTag(tag), ingredientCount)
                 .criterion(FabricRecipeProvider.hasItem(output), conditionsFromItem(output))
-                .offerTo(exporter, new Identifier(tagPath + "_to_" + getRecipeName(output) + "_woodcutting"));
+                .offerTo(exporter, new Identifier(tagNamespace + "_" + tagPath + "_to_" + getRecipeName(output) + "_woodcutting"));
     }
 }
