@@ -21,6 +21,24 @@ repositories {
 			includeGroup "curse.maven"
 		}
 	}
+	maven {
+		url "https://oss.sonatype.org/content/repositories/snapshots"
+	}
+	maven {
+		url "https://maven.terraformersmc.com/"
+	}
+	maven {
+		url "https://maven.shedaniel.me/"
+	}
+	maven {
+		url "https://maven.isxander.dev/releases"
+	}
+	maven {
+		url "https://maven.quiltmc.org/repository/release"
+	}
+	maven {
+		url "https://jitpack.io"
+	}
 }
 
 fabricApi {
@@ -38,6 +56,8 @@ dependencies {
 	modImplementation "curse.maven:biomes-o-plenty-220318:5300401"
 	modImplementation "curse.maven:terrablender-fabric-565956:5068224"
 	modImplementation "curse.maven:glitchcore-955399:5088443"
+	modImplementation "curse.maven:regions-unexplored-659110:4968691"
+	modImplementation "com.github.Lortseam.completeconfig:base:2.5.3"
 	implementation("com.electronwill.night-config:toml:3.6.7")
 	implementation("com.electronwill.night-config:core:3.6.7")
 	implementation("net.jodah:typetools:0.6.3")
@@ -52,7 +72,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
+	it.options.release = 19
 }
 
 java {
@@ -61,8 +81,8 @@ java {
 	// If you remove this line, sources will not be generated.
 	withSourcesJar()
 
-	sourceCompatibility = JavaVersion.VERSION_21
-	targetCompatibility = JavaVersion.VERSION_21
+	sourceCompatibility = JavaVersion.VERSION_19
+	targetCompatibility = JavaVersion.VERSION_19
 }
 
 jar {
