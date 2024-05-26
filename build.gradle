@@ -57,10 +57,13 @@ dependencies {
 	modImplementation "curse.maven:terrablender-fabric-565956:5068224"
 	modImplementation "curse.maven:glitchcore-955399:5088443"
 	modImplementation "curse.maven:regions-unexplored-659110:5151846"
+	modImplementation "curse.maven:better-archeology-835687:5341719"
+	modImplementation "curse.maven:yungs-api-fabric-421649:5330976"
 	modImplementation "com.github.Lortseam.completeconfig:base:2.5.3"
 	implementation("com.electronwill.night-config:toml:3.6.7")
 	implementation("com.electronwill.night-config:core:3.6.7")
 	implementation("net.jodah:typetools:0.6.3")
+	implementation group: 'org.reflections', name: 'reflections', version: '0.10.2'
 }
 
 processResources {

@@ -7,6 +7,7 @@ import com.mojang.datafixers.util.Pair;
 import io.github.uhq_games.regions_unexplored.block.RuBlocks;
 import io.github.uhq_games.regions_unexplored.data.tags.RuTags;
 import io.github.uhq_games.regions_unexplored.item.RuItems;
+import net.Pandarix.betterarcheology.block.ModBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.resource.conditions.v1.DefaultResourceConditions;
@@ -30,6 +31,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
     public void generate(RecipeExporter exporter) {
         createBiomesOPlentyRecipes(exporter);
         createRegionsUnexploredRecipes(exporter);
+        createBetterArcheologyRecipes(exporter);
     }
 
     private void createBiomesOPlentyRecipes(RecipeExporter exporter) {
@@ -885,6 +887,27 @@ public class RecipeGenerator extends FabricRecipeProvider {
 
         createCarpentryRecipe(exporterForRegionsUnexplored, Pair.of(RuBlocks.BLACK_PAINTED_PLANKS, 1), RuBlocks.BLACK_PAINTED_SLAB, 2);
         createCarpentryRecipe(exporterForRegionsUnexplored, Pair.of(RuBlocks.BLACK_PAINTED_PLANKS, 1), RuBlocks.BLACK_PAINTED_STAIRS, 1);
+    }
+
+    private void createBetterArcheologyRecipes(RecipeExporter exporter) {
+        RecipeExporter exporterForBetterArcheology = withConditions(exporter, DefaultResourceConditions.allModsLoaded("betterarcheology"));
+
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_LOG, 1), ModBlocks.ROTTEN_PLANKS, 4);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_LOG, 1), ModBlocks.ROTTEN_SLAB, 8);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_LOG, 1), ModBlocks.ROTTEN_STAIRS, 4);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_LOG, 1), ModBlocks.ROTTEN_FENCE, 4);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_LOG, 1), ModBlocks.ROTTEN_FENCE_GATE, 4);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_LOG, 1), ModBlocks.ROTTEN_TRAPDOOR, 8);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_LOG, 1), ModBlocks.ROTTEN_DOOR, 4);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_LOG, 1), ModBlocks.ROTTEN_PRESSURE_PLATE, 16);
+
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_PLANKS, 2), ModBlocks.ROTTEN_DOOR, 2);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_PLANKS, 1), ModBlocks.ROTTEN_FENCE_GATE, 1);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_PLANKS, 1), ModBlocks.ROTTEN_FENCE, 1);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_PLANKS, 1), ModBlocks.ROTTEN_PRESSURE_PLATE, 4);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_PLANKS, 1), ModBlocks.ROTTEN_SLAB, 2);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_PLANKS, 1), ModBlocks.ROTTEN_STAIRS, 1);
+        createCarpentryRecipe(exporterForBetterArcheology, Pair.of(ModBlocks.ROTTEN_PLANKS, 1), ModBlocks.ROTTEN_TRAPDOOR, 2);
     }
 
     private void createCarpentryRecipe(RecipeExporter exporter, Pair<Block, Integer> ingredientPair, ItemConvertible output,
