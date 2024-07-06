@@ -38,6 +38,11 @@ dependencies {
 	modImplementation "curse.maven:biomes-o-plenty-220318:5360453"
 	modImplementation "curse.maven:terrablender-fabric-565956:5340451"
 	modImplementation "curse.maven:glitchcore-955399:5352265"
+	modImplementation "curse.maven:more-barrel-variants-1058391:5507237"
+	modImplementation "curse.maven:more-composter-variants-1058421:5507400"
+	modImplementation "curse.maven:more-crafting-tables-913586:5330972"
+	modImplementation "curse.maven:more-chest-variants-858032:5476645"
+	modImplementation "curse.maven:quad-932715:5387919"
 	implementation("com.electronwill.night-config:toml:3.6.7")
 	implementation("com.electronwill.night-config:core:3.6.7")
 	implementation("net.jodah:typetools:0.6.3")
