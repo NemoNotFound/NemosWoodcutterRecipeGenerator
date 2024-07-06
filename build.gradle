@@ -60,6 +60,11 @@ dependencies {
 	modImplementation "curse.maven:better-archeology-835687:5341719"
 	modImplementation "curse.maven:yungs-api-fabric-421649:5330976"
 	modImplementation "com.github.Lortseam.completeconfig:base:2.5.3"
+	modImplementation "curse.maven:more-barrel-variants-1058391:5507230"
+	modImplementation "curse.maven:more-composter-variants-1058421:5507397"
+	modImplementation "curse.maven:more-crafting-tables-913586:5330969"
+	modImplementation "curse.maven:more-chest-variants-858032:5476630"
+	modImplementation "curse.maven:quad-932715:5387913"
 	implementation("com.electronwill.night-config:toml:3.6.7")
 	implementation("com.electronwill.night-config:core:3.6.7")
 	implementation("net.jodah:typetools:0.6.3")
