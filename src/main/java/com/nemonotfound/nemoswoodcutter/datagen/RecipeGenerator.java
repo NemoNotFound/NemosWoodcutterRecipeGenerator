@@ -451,7 +451,7 @@ public class RecipeGenerator extends FabricRecipeProvider {
         WoodcuttingRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output, outputCount)
                 .input(Ingredient.ofItems(input), ingredientPair.getSecond())
                 .criterion(FabricRecipeProvider.hasItem(output), conditionsFromItem(output))
-                .offerTo(exporter, new Identifier(namespace + "_" + blockName + "_to_" + getRecipeName(output) + "_woodcutting"));
+                .offerTo(exporter, Identifier.of(namespace + "_" + blockName + "_to_" + getRecipeName(output) + "_woodcutting"));
     }
 
     private void createCarpentryRecipe(RecipeExporter exporter, TagKey<Item> tag, Integer ingredientCount, Item output,
@@ -462,6 +462,6 @@ public class RecipeGenerator extends FabricRecipeProvider {
         WoodcuttingRecipeJsonBuilder.create(RecipeCategory.DECORATIONS, output, outputCount)
                 .input(Ingredient.fromTag(tag), ingredientCount)
                 .criterion(FabricRecipeProvider.hasItem(output), conditionsFromItem(output))
-                .offerTo(exporter, new Identifier(namespace + "_" + tagPath + "_to_" + getRecipeName(output) + "_woodcutting"));
+                .offerTo(exporter, Identifier.of(namespace + "_" + tagPath + "_to_" + getRecipeName(output) + "_woodcutting"));
     }
 }
