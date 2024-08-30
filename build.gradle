@@ -43,6 +43,7 @@ dependencies {
 	modImplementation "curse.maven:more-crafting-tables-913586:5473304"
 	modImplementation "curse.maven:more-chest-variants-858032:5476664"
 	modImplementation "curse.maven:quad-932715:5440765"
+	modImplementation "curse.maven:nemos-mossy-blocks-1008561:5674763"
 	implementation("com.electronwill.night-config:toml:3.6.7")
 	implementation("com.electronwill.night-config:core:3.6.7")
 	implementation("net.jodah:typetools:0.6.3")
